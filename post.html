@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }} | PERSIAN HACKTIVIST{% endblock %}
+
+{% block content %}
+
+<div class="tech-card mt-10">
+    <div class="tech-content">
+        
+        <h1 class="text-4xl font-bold mb-4 red-glow">{{ post.title }}</h1>
+
+        <p class="post-date">{{ post.date_created }}</p>
+        <p class="post-text mb-4">{{ post.content }}</p>
+
+        {% if post.filename %}
+            {% if post.filename.endswith('.mp4') %}
+                <video class="media-video" controls>
+                    <source src="{{ url_for('static', filename='uploads/' ~ post.filename) }}">
+                </video>
+            {% else %}
+                <img class="media-img" src="{{ url_for('static', filename='uploads/' ~ post.filename) }}">
+            {% endif %}
+        {% endif %}
+
+        <div class="mt-6 space-x-4">
+            <a href="/edit_post/{{ post.id }}" class="cyber-btn">Edit Post</a>
+            <a href="/blog" class="cyber-btn">← Back</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
