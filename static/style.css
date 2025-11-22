@@ -1,0 +1,490 @@
+/* -------------------------------
+   GLOBAL SETTINGS
+--------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;500;700&display=swap');
+
+body {
+    font-family: 'Vazirmatn', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+
+    color: #fff;
+}
+
+/* BACKGROUND IMAGE (STATIC) */
+.bg-overlay {
+    background: url('https://s6.uupload.ir/files/what-is-cyber-security_wly1.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    filter: brightness(0.35);
+}
+
+
+/* -------------------------------
+   LOGO (TOP CENTER)
+--------------------------------*/
+.logo {
+    text-align: center;
+    font-size: 35px;
+    font-weight: 700;
+    margin-top: 25px;
+
+    text-shadow: 0 0 20px red;
+    color: #ff1c1c;
+
+    letter-spacing: 2px;
+}
+
+
+/* -------------------------------
+   HEADER SLOGAN
+--------------------------------*/
+.scary-header {
+    text-align: center;
+    margin-top: 10px;
+
+    font-size: 22px;
+    color: #ff3b3b;
+
+    text-shadow: 0 0 10px #ff0000;
+}
+
+
+/* BLINKING EFFECT */
+.blinking {
+    animation: blinkingText 1.2s infinite;
+}
+
+@keyframes blinkingText {
+    0% { opacity: 1; }
+    50% { opacity: .2; }
+    100% { opacity: 1; }
+}
+
+
+/* -------------------------------
+   HAMBURGER MENU
+--------------------------------*/
+.hamburger-menu {
+    position: fixed;
+    top: 20px;
+    right: 25px;
+    width: 35px;
+    height: 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+    z-index: 999;
+}
+
+.hamburger-menu div {
+    background: #ff1c1c;
+    height: 5px;
+    border-radius: 5px;
+    box-shadow: 0 0 8px red;
+}
+
+
+/* -------------------------------
+   NAVIGATION MENU
+--------------------------------*/
+.nav-links {
+    position: fixed;
+    top: 0;
+    right: -250px;
+
+    width: 250px;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(6px);
+
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+
+    transition: 0.35s ease-in-out;
+    z-index: 900;
+}
+
+.nav-links a {
+    padding: 18px;
+    padding-left: 30px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+
+    border-bottom: 1px solid rgba(255, 0, 0, 0.25);
+    transition: 0.2s;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 0, 0, 0.25);
+    padding-left: 40px;
+}
+
+.nav-active {
+    right: 0;
+}
+
+
+/* -------------------------------
+   PAGE CONTENT
+--------------------------------*/
+.content {
+    margin-top: 40px;
+    padding: 20px;
+}
+
+
+/* -------------------------------
+   RESPONSIVE
+--------------------------------*/
+@media (max-width: 500px) {
+    .logo {
+        font-size: 27px;
+    }
+
+    .scary-header {
+        font-size: 18px;
+    }
+
+    .nav-links a {
+        font-size: 16px;
+        padding: 15px;
+    }
+}
+/* ---------- BLOG TABS ---------- */
+.tabs-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.tab {
+    padding: 10px 20px;
+    background: rgba(255, 30, 30, 0.15);
+    border: 1px solid rgba(255, 30, 30, 0.5);
+    border-radius: 6px;
+    color: white;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.tab:hover {
+    background: rgba(255, 30, 30, 0.3);
+}
+
+.active-tab {
+    background: #ff1c1c;
+    border-color: #ff1c1c;
+}
+
+/* ---------- BLOG CARDS ---------- */
+.tech-card {
+    background: rgba(0, 0, 0, 0.55);
+    border-left: 4px solid #ff1c1c;
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 12px rgba(255, 20, 20, 0.25);
+}
+
+.post-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.post-text {
+    margin-bottom: 10px;
+    line-height: 1.7;
+}
+
+.media-img, .media-video {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.post-date {
+    font-size: 13px;
+    color: #cfcfcf;
+    margin-top: 8px;
+}
+
+/* ---------- BUTTONS ---------- */
+.cyber-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff1c1c;
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.cyber-btn:hover {
+    background: #ff3434;
+    box-shadow: 0 0 10px red;
+}
+
+.cyber-btn.sm {
+    padding: 6px 14px;
+    font-size: 14px;
+}
+/* INPUTS WITH HACK STYLE */
+.hack-input {
+    width: 100%;
+    background: rgba(255, 0, 0, 0.1);
+    border: 1px solid rgba(255, 0, 0, 0.4);
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.hack-input:focus {
+    border-color: #ff1c1c;
+    box-shadow: 0 0 10px red;
+}
+
+/* FILE UPLOAD */
+.hack-upload {
+    width: 100%;
+    padding: 8px;
+    background: rgba(255, 20, 20, 0.15);
+    border: 1px solid rgba(255, 20, 20, 0.4);
+    border-radius: 6px;
+    color: #fff;
+}
+
+.hack-upload:hover {
+    background: rgba(255, 20, 20, 0.25);
+}
+/* HOME PAGE */
+.home-box {
+    margin-top: 80px;
+    text-align: center;
+}
+
+.home-title {
+    text-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+}
+
+.red-glow {
+    color: #ff1c1c;
+    text-shadow: 0 0 20px red, 0 0 40px red;
+}
+
+.home-subtitle {
+    color: #cccccc;
+}
+/* ---------- TECH CARDS ---------- */
+.tech-card {
+    background: rgba(0,0,0,0.5);
+    border: 1px solid rgba(255, 28, 28, 0.6);
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(255,28,28,0.3);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.tech-card:hover {
+    box-shadow: 0 0 35px rgba(255,28,28,0.7);
+    transform: translateY(-5px);
+}
+
+.tech-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        120deg,
+        rgba(255,28,28,0.12) 0 25%,
+        transparent 25% 50%,
+        rgba(255,28,28,0.12) 50% 75%,
+        transparent 75% 100%
+    );
+    background-size: 60px 60px;
+    animation: moveBG 4s linear infinite;
+    z-index: 0;
+}
+
+@keyframes moveBG {
+    from { background-position: 0 0; }
+    to { background-position: 60px 60px; }
+}
+
+.tech-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* Fade-in animation */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* ===============================
+   General Body & Overlay
+=============================== */
+body {
+    font-family: 'B Nazanin', sans-serif;
+    background-color: #000;
+    color: #fff;
+    overflow-x: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 0;
+}
+
+/* ===============================
+   Fade-in Animation
+=============================== */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s ease;
+}
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===============================
+   Tech Card Styles
+=============================== */
+.tech-card {
+    position: relative;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #dc2626; /* red-600 */
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 20px rgba(220, 38, 38, 0.3);
+    transition: all 0.3s ease;
+}
+
+.tech-card:hover {
+    box-shadow: 0 0 35px rgba(220, 38, 38, 0.6);
+    transform: translateY(-5px);
+}
+
+.tech-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        120deg,
+        rgba(220, 38, 38, 0.12) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(220, 38, 38, 0.12) 50%,
+        rgba(220, 38, 38, 0.12) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 60px 60px;
+    animation: moveBG 4s linear infinite;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+@keyframes moveBG {
+    from { background-position: 0 0; }
+    to { background-position: 60px 60px; }
+}
+
+.tech-content {
+    position: relative;
+    z-index: 1;
+}
+
+/* ===============================
+   Text & Headers
+=============================== */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    color: #f87171; /* red-400 */
+}
+
+p {
+    color: #d1d5db; /* gray-300 */
+    line-height: 1.6;
+}
+
+/* ===============================
+   Buttons
+=============================== */
+.cyber-btn, .btn-red {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: #dc2626; /* red-600 */
+    color: #fff;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.cyber-btn:hover, .btn-red:hover {
+    background-color: #b91c1c; /* red-700 */
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   Grid for Skills
+=============================== */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+}
+
+.skill-grid div {
+    background: rgba(220,38,38,0.2);
+    padding: 0.75rem;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.skill-grid div:hover {
+    background: rgba(220,38,38,0.35);
+}
+
+/* ===============================
+   Utility
+=============================== */
+.text-red-400 { color: #f87171; }
+.text-red-600 { color: #dc2626; }
+.text-red-700 { color: #b91c1c; }
+.text-gray-300 { color: #d1d5db; }
