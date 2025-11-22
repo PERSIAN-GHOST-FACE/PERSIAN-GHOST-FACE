@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}Blog | PERSIAN HACKTIVIST{% endblock %}
+
+{% block content %}
+
+<h1 class="text-4xl font-bold text-center mb-8 red-glow">Blog</h1>
+
+<div class="text-center mb-6">
+    <a href="/new_post" class="cyber-btn">➕ New Post</a>
+</div>
+
+{% for post in posts %}
+<div class="tech-card mb-6 fade-in">
+    <div class="tech-content">
+        
+        <h2 class="post-title">
+            <a href="/post/{{ post.id }}" class="text-red-400 hover:text-red-300">
+                {{ post.title }}
+            </a>
+        </h2>
+
+        <p class="post-date">{{ post.date_created }}</p>
+
+        <p class="post-text">{{ post.content[:180] }}...</p>
+
+        {% if post.filename %}
+            {% if post.filename.endswith('.mp4') %}
+                <video class="media-video" controls>
+                    <source src="{{ url_for('static', filename='uploads/' ~ post.filename) }}">
+                </video>
+            {% else %}
+                <img class="media-img" src="{{ url_for('static', filename='uploads/' ~ post.filename) }}">
+            {% endif %}
+        {% endif %}
+
+        <div class="mt-4 space-x-4">
+            <a href="/post/{{ post.id }}" class="cyber-btn sm">View</a>
+            <a href="/edit_post/{{ post.id }}" class="cyber-btn sm">Edit</a>
+            <a href="/delete_post/{{ post.id }}" class="cyber-btn sm"
+               onclick="return confirm('Delete this post?')">Delete</a>
+        </div>
+
+    </div>
+</div>
+{% endfor %}
+
+{% endblock %}
