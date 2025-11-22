@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% block title %}Contact Us | PERSIAN HACKTIVIST{% endblock %}
+
+{% block content %}
+<div class="min-h-screen relative flex flex-col items-center justify-center text-center px-6 py-16">
+  <div class="relative z-10 max-w-5xl space-y-12 w-full">
+    <h1 class="text-5xl font-bold mb-8 text-red-600 drop-shadow-lg fade-in">Contact Us</h1>
+
+    <!-- Telegram Card -->
+    <div class="tech-card p-6 fade-in">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-2 text-red-400">Telegram</h2>
+        <p class="text-gray-300">Channel: <a href="https://t.me/YourChannel" target="_blank" class="text-red-300 hover:text-red-400">t.me/YourChannel</a></p>
+        <p class="text-gray-300">Admin: <a href="https://t.me/id_ghostface_cyber" target="_blank" class="text-red-300 hover:text-red-400">@YourID</a></p>
+      </div>
+    </div>
+
+    <!-- WhatsApp Card -->
+    <div class="tech-card p-6 fade-in">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-2 text-red-400">WhatsApp</h2>
+        <p class="text-gray-300">Admin: <a href="https://wa.me/YourNumber" target="_blank" class="text-red-300 hover:text-red-400">+98XXXXXXXXXX</a></p>
+      </div>
+    </div>
+
+    <!-- GitHub Card -->
+    <div class="tech-card p-6 fade-in">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-2 text-red-400">GitHub</h2>
+        <p class="text-gray-300">Team Pages: <a href="https://github.com/YourTeam" target="_blank" class="text-red-300 hover:text-red-400">github.com/YourTeam</a></p>
+      </div>
+    </div>
+
+    <!-- Instagram Card -->
+    <div class="tech-card p-6 fade-in">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-2 text-red-400">Instagram</h2>
+        <p class="text-gray-300">Team Pages: <a href="https://instagram.com/YourTeam" target="_blank" class="text-red-300 hover:text-red-400">@YourTeam</a></p>
+      </div>
+    </div>
+
+    <!-- Email Card -->
+    <div class="tech-card p-6 fade-in">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-2 text-red-400">Email</h2>
+        <p class="text-gray-300">Team Emails: <a href="mailto:team@hacktivist.ir" class="text-red-300 hover:text-red-400">team@hacktivist.ir</a></p>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="{{ url_for('home') }}" class="btn-red mt-8 fade-in">
+      ← Back to Home
+    </a>
+  </div>
+
+  <!-- Fade-in Script -->
+  <script>
+    const fadeElems = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElems.forEach(elem => observer.observe(elem));
+  </script>
+</div>
+{% endblock %}
