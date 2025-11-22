@@ -1,0 +1,110 @@
+{% extends "base.html" %}
+{% block title %}About Us | PERSIAN HACKTIVIST{% endblock %}
+
+{% block content %}
+<div class="min-h-screen relative flex flex-col items-center justify-center text-center px-6 py-16">
+
+  <!-- Content -->
+  <div class="relative z-10 max-w-5xl space-y-12 w-full">
+    <h1 class="text-5xl font-bold mb-8 text-red-600 drop-shadow-lg fade-in">About Us</h1>
+
+    <!-- Card 1: Team Leader -->
+    <div class="tech-card p-8 fade-in bg-red-900/20 border border-red-600 backdrop-blur-md shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-4 text-red-400">GHOST FACE - Team Leader</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          I am <strong>GHOST FACE</strong>, the leader of Persian Hacktivist.  
+          Our team is composed of skilled hackers and programmers who aim to maintain security and justice in cyberspace.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 2: Backend Team -->
+    <div class="tech-card p-8 fade-in bg-red-900/20 border border-red-600 backdrop-blur-md shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-4 text-red-400">Backend Writers</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          <strong>Herminche</strong> and <strong>GHOST FACE</strong> are responsible for the backend development, database management, and API security.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 3: Frontend Team -->
+    <div class="tech-card p-8 fade-in bg-red-900/20 border border-red-600 backdrop-blur-md shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-4 text-red-400">Frontend Writers</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          <strong>Behrad Javanmard</strong> designs stunning, responsive, and interactive UI/UX for all our web projects.
+        </p>
+      </div>
+    </div>
+
+    <!-- Card 4: Designer -->
+    <div class="tech-card p-8 fade-in bg-red-900/20 border border-red-600 backdrop-blur-md shadow-lg hover:shadow-2xl transition transform hover:-translate-y-2">
+      <div class="tech-content">
+        <h2 class="text-3xl font-bold mb-4 text-red-400">Designer</h2>
+        <p class="text-lg text-gray-300 leading-relaxed">
+          <strong>Bowler</strong> handles visual designs, graphics, and overall aesthetic of the team’s projects.
+        </p>
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <a href="{{ url_for('home') }}" class="inline-block mt-8 py-2 px-6 bg-red-600 hover:bg-red-700 text-white font-semibold rounded transition fade-in">
+      ← Back to Home
+    </a>
+  </div>
+
+  <!-- Fade-in Animation Script -->
+  <script>
+    const fadeElems = document.querySelectorAll('.fade-in');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    fadeElems.forEach(elem => observer.observe(elem));
+  </script>
+
+  <style>
+    /* Fade-in */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 1s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Tech Card Gradient Overlay */
+    .tech-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(220,38,38,0.12) 25%, transparent 25%, transparent 50%, rgba(220,38,38,0.12) 50%, rgba(220,38,38,0.12) 75%, transparent 75%, transparent);
+      background-size: 60px 60px;
+      animation: moveBG 4s linear infinite;
+      z-index: 0;
+      border-radius: 10px;
+    }
+    @keyframes moveBG {
+      from { background-position: 0 0; }
+      to { background-position: 60px 60px; }
+    }
+
+    .tech-card {
+      position: relative;
+      overflow: hidden;
+    }
+    .tech-content {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</div>
+{% endblock %}
