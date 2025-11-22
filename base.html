@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>{% block title %}PERSIAN HACKTIVIST{% endblock %}</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<div class="bg-overlay"></div>
+
+<!-- LOGO -->
+<div class="logo">𝐏𝐄𝐑𝐒𝐈𝐀𝐍 𝐇𝐀𝐂𝐊𝐓𝐈𝐕𝐈𝐒𝐓</div>
+
+<!-- HEADER SLOGAN -->
+<div class="scary-header blinking">
+  Peaceful — But Ready For War
+</div>
+
+<!-- HAMBURGER MENU -->
+<div class="hamburger-menu" id="hamburger">
+  <div></div><div></div><div></div>
+</div>
+
+<!-- NAVIGATION -->
+<nav class="nav-links" id="navLinks">
+    <a href="/">Home</a>
+    <a href="{{ url_for('about') }}">About Us</a>
+    <a href="/contact">Contact Us</a>
+    <a href="/blog">Blog</a>
+    <a href="/courses">Courses</a>
+
+    {% if session.get('user_logged') %}
+        <a href="/profile">Profile</a>
+    {% endif %}
+</nav>
+
+<!-- PAGE CONTENT -->
+<div class="content">
+    {% block content %}{% endblock %}
+</div>
+
+<!-- SCRIPT -->
+<script>
+const hamburger = document.getElementById('hamburger');
+const navLinks = document.getElementById('navLinks');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('nav-active');
+});
+</script>
+
+</body>
+</html>
