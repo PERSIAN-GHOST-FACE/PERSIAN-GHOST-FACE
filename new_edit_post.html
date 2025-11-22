@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}{{ 'Edit Post' if post else 'New Post' }}{% endblock %}
+
+{% block content %}
+
+<div class="max-w-lg mx-auto tech-card mt-10">
+
+    <h1 class="text-3xl font-bold text-center mb-6 red-glow">
+        {{ '✏️ Edit Post' if post else '🖋 Create New Post' }}
+    </h1>
+
+    <form action="{{ '/edit_post/' ~ post.id if post else '/new_post' }}"
+          method="POST"
+          enctype="multipart/form-data"
+          class="space-y-5">
+
+        <input type="text" name="title" value="{{ post.title if post else '' }}"
+               placeholder="Title" class="hack-input" required>
+
+        <textarea name="content" rows="6" class="hack-input" required>
+            {{ post.content if post else '' }}
+        </textarea>
+
+        {% if post and post.filename %}
+            <p class="text-red-400">Current file: {{ post.filename }}</p>
+        {% endif %}
+
+        <input type="file" name="media" class="hack-upload" accept=".jpg,.jpeg,.png,.gif,.mp4">
+
+        <button type="submit" class="cyber-btn w-full">
+            {{ 'Save Changes' if post else 'Publish Post' }}
+        </button>
+
+    </form>
+
+    <a href="/blog" class="block text-center text-red-400 mt-6">
+        ← Back to Blog
+    </a>
+
+</div>
+
+{% endblock %}
